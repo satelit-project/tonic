@@ -16,7 +16,6 @@ path = "src/bin/server.rs"
 tokio = "=0.2.0-alpha.6"
 tonic = { path = "../tonic", features = ["openssl"] }
 prost = "0.5"
-prost-derive = "0.5"
 bytes = "0.4"
 http = "0.1"
 futures-core-preview = "=0.3.0-alpha.19"
