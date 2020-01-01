@@ -210,6 +210,15 @@ pub fn compile_protos(proto_path: impl AsRef<Path>) -> io::Result<()> {
     Ok(())
 }
 
+/// Returns gRPC service generator for a standalone usage.
+pub fn service_generator(client: bool, server: bool) -> impl prost_build::ServiceGenerator {
+    let mut builder = configure();
+    builder.build_client = client;
+    builder.build_server = server;
+
+    ServiceGenerator::new(builder)
+}
+
 #[cfg(feature = "rustfmt")]
 fn fmt(out_dir: &str) {
     let dir = std::fs::read_dir(out_dir).unwrap();
